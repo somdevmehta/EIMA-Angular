@@ -1,0 +1,24 @@
+<div class="container">
+	<ul style="list-style-type: none;">
+		<li *ngFor="let user of users">
+			<div class="col-md-7">
+				<md-card>
+				<div class="row">
+					<div class="col-md-2">
+						<img md-card-avatar style="width:70px;height:70px"
+							src="https://pbs.twimg.com/profile_images/716487122224439296/HWPluyjs.jpg" />
+					</div>
+					<div class="col-md-10">
+						<md-card-header> 
+							<md-card-title><b>{{user.firstName}}&nbsp;{{user.middleName}}&nbsp;{{user.lastName}}</b></md-card-title>
+							<md-card-subtitle>{{user.designation}}</md-card-subtitle>
+							<md-card-subtitle>{{user.departmentName}}</md-card-subtitle>
+						</md-card-header>
+					</div>
+				</div>
+				</md-card>
+				<span>&nbsp;</span>
+			</div>
+		</li>
+	</ul>
+</div>
