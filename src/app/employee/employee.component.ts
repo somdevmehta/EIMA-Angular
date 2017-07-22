@@ -10,19 +10,25 @@ import 'rxjs/add/operator/map'
 })
 export class EmployeeComponent implements OnInit {
 
-  userId: number = null;
+  employeeId: number = null;
+  employee: any;
   user: any;
+  department: string
   projects: any = new Array();
   gender = ['Male', 'Female'];
+  clients: any = new Array();
 
   constructor(private userService: UserService, private ar: ActivatedRoute) {}
 
   ngOnInit() {
     console.log(this.ar);
     this.ar.params.subscribe(params => {
-      this.userId = +params['eid'];
-      this.userService.getUserById(this.userId).subscribe(user => this.user = user);
-      this.userService.getProjectsById(this.userId).subscribe(projects => this.projects = projects._embedded.projects);
+      this.employeeId = +params['eid'];
+      this.userService.getDepartmentById(this.employeeId).subscribe(dept => this.department = dept);
+      this.userService.getUserById(this.employeeId).subscribe(user => this.user = user);
+      this.userService.getEmployeeById(this.employeeId).subscribe(employee => this.employee = employee);
+      this.userService.getProjectsById(this.employeeId).subscribe(projects => this.projects = projects._embedded.projects);
+      this.userService.getClientsById(this.employeeId).subscribe(clients => this.clients = clients._embedded.clients);
       console.log(this.projects);
     });
 

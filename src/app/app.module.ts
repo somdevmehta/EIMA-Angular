@@ -20,10 +20,10 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
     MdCardModule,
     MdButtonModule,
-    HttpModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

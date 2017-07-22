@@ -11,16 +11,24 @@ export class UserService {
     return this.http.get(apiUrl);
   }
 
-  getUserById(eid: number) {
+  getEmployeeById(eid: number) {
     return this.http.get('http://localhost:8080/employees/' + eid).map(user => user.json());
   }
 
-  getDepartment(url: string) {
-    return this.http.get(url);
+  getUserById(eid: number) {
+    return this.http.get('http://localhost:8080/employees/' + eid + '/user').map(user => user.json());
+  }
+
+  getDepartmentById(eid: number) {
+    return this.http.get('http://localhost:8080/employees/' + eid + '/department').map(user => user.json());
   }
 
   getProjectsById(eid: number) {
     return this.http.get('http://localhost:8080/employees/' + eid + '/projects').map(user => user.json());
+  }
+
+  getClientsById(eid: number) {
+    return this.http.get('http://localhost:8080/employees/' + eid + '/clients').map(user => user.json());
   }
 
 }

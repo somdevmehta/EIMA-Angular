@@ -19,8 +19,8 @@ export class AppComponent implements OnInit {
     this.employeeService.getAllUsers().subscribe(ele => {
       this.users = ele.json()._embedded.employees
       for (const user of this.users) {
-        this.employeeService.getDepartment(user._links.department.href).subscribe(item => {
-          user.departmentName = item.json().deptName
+        this.employeeService.getDepartmentById(user.eid).subscribe(item => {
+          user.departmentName = item.deptName
         })
       }
     });
