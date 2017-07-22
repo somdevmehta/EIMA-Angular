@@ -1,6 +1,7 @@
 import {UserService} from './user.service';
 import {Component, OnInit} from '@angular/core';
 import {MdCard, MdButton} from '@angular/material';
+import {Router, ActivatedRoute} from '@angular/router'
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'app';
   users: Array<any> = [];
 
-  constructor(private employeeService: UserService) {}
+  constructor(private employeeService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.employeeService.getAllUsers().subscribe(ele => {

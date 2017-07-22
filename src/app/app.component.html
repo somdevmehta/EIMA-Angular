@@ -1,24 +1,35 @@
 <div class="container">
-	<ul style="list-style-type: none;">
-		<li *ngFor="let user of users">
-			<div class="col-md-7">
-				<md-card>
-				<div class="row">
-					<div class="col-md-2">
-						<img md-card-avatar style="width:70px;height:70px"
-							src="https://pbs.twimg.com/profile_images/716487122224439296/HWPluyjs.jpg" />
-					</div>
-					<div class="col-md-10">
-						<md-card-header> 
-							<md-card-title><b>{{user.firstName}}&nbsp;{{user.middleName}}&nbsp;{{user.lastName}}</b></md-card-title>
-							<md-card-subtitle>{{user.designation}}</md-card-subtitle>
+	<div class="row">
+		<div class="col-md-7 col-xs-7">
+			<ul style="list-style-type: none;">
+				<li *ngFor="let user of users"><md-card
+						style="cursor:pointer"
+						[routerLink]="['/employee',user.eid]">
+					<div class="row">
+						<div class="col-md-2">
+							<img
+								md-card-avatar
+								style="width: 70px; height: 70px"
+								src="https://pbs.twimg.com/profile_images/716487122224439296/HWPluyjs.jpg" />
+						</div>
+						<div
+							class="col-md-10"
+							style="word-wrap: break-word">
+							<md-card-header> <md-card-title>
+							<a style="word-break: break-all; white-space: normal;">
+								<b>{{user.firstName}}&nbsp;{{user.middleName}}&nbsp;{{user.lastName}}</b>
+							</a>
+							</md-card-title> 
+							<md-card-subtitle>{{user.designation}}</md-card-subtitle> 
 							<md-card-subtitle>{{user.departmentName}}</md-card-subtitle>
-						</md-card-header>
+							</md-card-header>
+						</div>
 					</div>
-				</div>
-				</md-card>
-				<span>&nbsp;</span>
-			</div>
-		</li>
-	</ul>
+					</md-card> <span>&nbsp;</span></li>
+			</ul>
+		</div>
+		<div class="col-md-5 col-xs-5">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>
